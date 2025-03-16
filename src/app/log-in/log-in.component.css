@@ -1,0 +1,41 @@
+
+body {
+    background-color: #f8f9fa;
+  }
+  
+  .login-card {
+    max-width: 900px;
+    width: 100%;
+    background: white;
+    border-radius: 10px;
+  }
+  
+  .form-control {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .btn-primary {
+    background-color: #1a73e8;
+    border: none;
+    border-radius: 8px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #1669c1;
+  }
+  
+  .btn-light {
+    border: 2px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .text-primary {
+    color: #1a73e8 !important;
+  }
+  
+  img {
+    max-height: 300px;
+    object-fit: cover;
+  }
+  
