@@ -16,13 +16,13 @@ body {
   }
   
   .btn-primary {
-    background-color: #1a73e8;
+    background-color: #1F41BB;
     border: none;
     border-radius: 8px;
   }
   
   .btn-primary:hover {
-    background-color: #1669c1;
+    background-color: #1F41BB;
   }
   
   .btn-light {
@@ -31,7 +31,7 @@ body {
   }
   
   .text-primary {
-    color: #1a73e8 !important;
+    color: #1F41BB !important;
   }
   
   img {
