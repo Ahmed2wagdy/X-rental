@@ -1,0 +1,17 @@
+.container {
+    max-width: 900px;
+  }
+  
+  img {
+    max-width: 80%;
+  }
+  
+  .btn-primary {
+    background-color: #0033cc;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #002699;
+  }
+  

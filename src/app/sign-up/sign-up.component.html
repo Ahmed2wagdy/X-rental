@@ -1,1 +1,76 @@
-<p>sign-up works!</p>
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="row w-100">
+      <!-- الجزء الأيسر (الصورة) -->
+      <div class="col-md-6 d-flex align-items-center justify-content-center">
+        <img src="assets/images/signup.gif" alt="SignUp Illustration" class="img-fluid">
+      </div>
+  
+      <!-- الجزء الأيمن (النموذج) -->
+      <div class="col-md-6 p-4">
+        <h2 class="text-primary fw-bold">SignUp</h2>
+        <p class="mb-4">Create your account</p>
+  
+        <form>
+          <div class="row">
+            <div class="col-md-6 mb-3">
+              <label class="form-label">First Name</label>
+              <input type="text" class="form-control" placeholder="ex: Ahmed">
+            </div>
+            <div class="col-md-6 mb-3">
+              <label class="form-label">Last Name</label>
+              <input type="text" class="form-control" placeholder="ex: Wagdy">
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" placeholder="ex: ahmedwagdy@email.com">
+          </div>
+  
+          <div class="mb-3">
+            <label class="form-label">Phone Number</label>
+            <div class="input-group">
+              <span class="input-group-text">+20</span>
+              <input type="text" class="form-control" placeholder="ex: 01007559638">
+            </div>
+          </div>
+  
+          <div class="mb-3">
+            <label class="form-label">City</label>
+            <input type="text" class="form-control" placeholder="ex: Cairo">
+          </div>
+  
+          <div class="mb-3">
+            <label class="form-label">Birth of date</label>
+            <input type="date" class="form-control">
+          </div>
+  
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" placeholder="********">
+          </div>
+  
+          <div class="mb-3">
+            <label class="form-label">Confirm password</label>
+            <input type="password" class="form-control" placeholder="********">
+          </div>
+  
+          <div class="form-check mb-3">
+            <input type="checkbox" class="form-check-input">
+            <label class="form-check-label">I understood the <a href="#">terms & policy</a>.</label>
+          </div>
+  
+          <button type="submit" class="btn btn-primary w-100">SIGN UP</button>
+  
+          <div class="text-center mt-3">
+            <button type="button" class="btn btn-outline-secondary w-100">
+              <img src="assets/images/google.png" alt="Google" width="20"> Sign in with Google
+            </button>
+          </div>
+  
+          <p class="text-center mt-3">Do you have an account? <a routerLink="/login" class="text-primary fw-bold">Login</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+  
