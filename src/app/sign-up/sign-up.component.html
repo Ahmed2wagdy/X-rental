@@ -1,81 +1,89 @@
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
-  <div class="row w-100">
-    <!-- الجزء الأيسر (الصورة) -->
-    <div class="col-md-6 d-none d-md-flex align-items-center justify-content-center image-container">
-      <img src="assets/images/signup.gif" alt="SignUp Illustration" class="img-fluid">
-    </div>
+  <div class="card sign-up-card shadow-lg p-4">
+    <div class="row">
+      <!-- الجزء الأيسر (الصورة) -->
+      <div class="col-md-6 d-none d-md-flex align-items-center justify-content-center image-container">
+        <img src="assets/images/signup.gif" alt="SignUp Illustration" class="img-fluid">
+      </div>
 
-    <!-- الجزء الأيمن (النموذج) -->
-    <div class="col-md-6 d-flex align-items-center justify-content-center">
-      <div class="form-container">
-        <h2 class="text-primary fw-bold">SignUp</h2>
-        <p class="mb-3">Create your account</p>
+      <!-- الجزء الأيمن (النموذج) -->
+      <div class="col-md-6 d-flex align-items-center justify-content-center">
+        <div class="form-container">
+          <h2 class="text-primary fw-bold">Sign Up</h2>
+          <p class="mb-3">Create your account</p>
 
-        <form #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm)" novalidate>
-          <div class="row">
-            <div class="col-md-6 mb-2">
-              <label class="form-label">First Name</label>
-              <input type="text" class="form-control" placeholder="Ahmed" [(ngModel)]="firstName" name="firstName" required pattern="^[A-Za-z]+$">
-              <div *ngIf="signUpForm.submitted && (!firstName || signUpForm.controls['firstName']?.invalid)" class="text-danger">Only letters are allowed.</div>
+          <form #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm)" novalidate>
+            <div class="row">
+              <div class="col-md-6 mb-2">
+                <label class="form-label">First Name</label>
+                <input type="text" class="form-control placeholder-light" placeholder="ex: Ahmed"
+                       [(ngModel)]="firstName" name="firstName" required>
+              </div>
+              <div class="col-md-6 mb-2">
+                <label class="form-label">Last Name</label>
+                <input type="text" class="form-control placeholder-light" placeholder="ex: Wagdy"
+                       [(ngModel)]="lastName" name="lastName" required>
+              </div>
             </div>
-            <div class="col-md-6 mb-2">
-              <label class="form-label">Last Name</label>
-              <input type="text" class="form-control" placeholder="Wagdy" [(ngModel)]="lastName" name="lastName" required pattern="^[A-Za-z]+$">
-              <div *ngIf="signUpForm.submitted && (!lastName || signUpForm.controls['lastName']?.invalid)" class="text-danger">Only letters are allowed.</div>
+
+            <div class="mb-2">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control placeholder-light" placeholder="ex: ahmedwagdy@email.com"
+                     [(ngModel)]="email" name="email" required>
             </div>
-          </div>
 
-          <div class="mb-2">
-            <label class="form-label">Email</label>
-            <input type="email" class="form-control" placeholder="ahmedwagdy@email.com" [(ngModel)]="email" name="email" required>
-            <div *ngIf="signUpForm.submitted && (!email || signUpForm.controls['email']?.invalid)" class="text-danger">
-              Valid email is required.
+            <div class="mb-2">
+              <label class="form-label">Phone Number</label>
+              <div class="input-group">
+                <span class="input-group-text">+20</span>
+                <input type="tel" class="form-control placeholder-light" placeholder="ex: 01007559638"
+                       [(ngModel)]="phoneNumber" name="phoneNumber" required>
+              </div>
             </div>
-          </div>
 
-          <div class="mb-2">
-            <label class="form-label">Phone Number</label>
-            <div class="input-group">
-              <span class="input-group-text">+20</span>
-              <input type="tel" class="form-control" placeholder="01007559638" [(ngModel)]="phoneNumber" name="phoneNumber" required pattern="[0-9]*">
+            <div class="mb-2">
+              <label class="form-label">City</label>
+              <select class="form-select" [(ngModel)]="selectedCity" name="selectedCity" required>
+                <option value="">ex: Cairo</option>
+                <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+              </select>
             </div>
-            <div *ngIf="signUpForm.submitted && !phoneNumber" class="text-danger">Only numbers are allowed.</div>
-          </div>
 
-          <div class="mb-2">
-            <label class="form-label">City</label>
-            <select class="form-select" [(ngModel)]="selectedCity" name="selectedCity" required>
-              <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
-            </select>
-            <div *ngIf="signUpForm.submitted && !selectedCity" class="text-danger">Please select a city.</div>
-          </div>
+            <div class="mb-2">
+              <label class="form-label">Birth Date</label>
+              <input type="date" class="form-control placeholder-light" [(ngModel)]="birthDate" name="birthDate" required>
+            </div>
 
-          <div class="mb-2">
-            <label class="form-label">Birth Date</label>
-            <input type="date" class="form-control" [(ngModel)]="birthDate" name="birthDate" required>
-            <div *ngIf="signUpForm.submitted && !birthDate" class="text-danger">Birth date is required.</div>
-          </div>
+            <div class="mb-2">
+              <label class="form-label">Password</label>
+              <input type="password" class="form-control placeholder-light" placeholder="********"
+                     [(ngModel)]="password" name="password" required>
+            </div>
 
-          <div class="mb-2">
-            <label class="form-label">Password</label>
-            <input type="password" class="form-control" placeholder="********" [(ngModel)]="password" name="password" required minlength="6">
-            <div *ngIf="signUpForm.submitted && !password" class="text-danger">Password is required (min 6 characters).</div>
-          </div>
+            <div class="mb-2">
+              <label class="form-label">Confirm Password</label>
+              <input type="password" class="form-control placeholder-light" placeholder="********"
+                     [(ngModel)]="confirmPassword" name="confirmPassword" required>
+            </div>
 
-          <div class="mb-2">
-            <label class="form-label">Confirm Password</label>
-            <input type="password" class="form-control" placeholder="********" [(ngModel)]="confirmPassword" name="confirmPassword" required>
-            <div *ngIf="signUpForm.submitted && (confirmPassword !== password)" class="text-danger">Passwords do not match.</div>
-          </div>
+            <div class="form-check mb-2">
+              <input type="checkbox" class="form-check-input" [(ngModel)]="termsAccepted" name="termsAccepted" required>
+              <label class="form-check-label">I understood the <a href="#">terms & policy.</a></label>
+            </div>
 
-          <div class="form-check mb-2">
-            <input type="checkbox" class="form-check-input" [(ngModel)]="termsAccepted" name="termsAccepted" required>
-            <label class="form-check-label">I accept the <a href="#">terms & policy</a>.</label>
-            <div *ngIf="signUpForm.submitted && !termsAccepted" class="text-danger">You must accept the terms.</div>
-          </div>
+            <!-- زر SIGN UP -->
+            <button type="submit" class="btn btn-primary w-100">SIGN UP</button>
 
-          <button type="submit" class="btn btn-primary w-100">SIGN UP</button>
-        </form>
+            <!-- زر تسجيل الدخول بجوجل -->
+            <button class="btn google-btn w-100 mt-3">
+              <img src="assets/images/google.png" alt="Google" class="google-icon"> Sign in with Google
+            </button>
+
+            <!-- رابط تسجيل الدخول -->
+            <p class="mt-3 text-center">Do you have an account? <a href="/login" class="login-link">Login</a></p>
+
+          </form>
+        </div>
       </div>
     </div>
   </div>

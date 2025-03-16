@@ -1,41 +1,57 @@
+.login-card {
+  max-width: 900px;
+  width: 100%;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 40px;
+}
 
-body {
-    background-color: #f8f9fa;
-  }
-  
-  .login-card {
-    max-width: 900px;
-    width: 100%;
-    background: white;
-    border-radius: 10px;
-  }
-  
-  .form-control {
-    border: 2px solid #ddd;
-    border-radius: 8px;
-  }
-  
-  .btn-primary {
-    background-color: #1F41BB;
-    border: none;
-    border-radius: 8px;
-  }
-  
-  .btn-primary:hover {
-    background-color: #1F41BB;
-  }
-  
-  .btn-light {
-    border: 2px solid #ddd;
-    border-radius: 8px;
-  }
-  
-  .text-primary {
-    color: #1F41BB !important;
-  }
-  
-  img {
-    max-height: 300px;
-    object-fit: cover;
-  }
-  
+/* تحسين إدخال النصوص */
+.form-control {
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  font-size: 16px;
+  padding: 10px;
+}
+
+.btn-primary {
+  background-color: #1F41BB !important;
+  border-radius: 12px;
+  padding: 12px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary:hover {
+  background-color: #1F41BB !important;
+}
+
+.google-btn {
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 12px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+
+.google-btn:hover {
+  border-color: #1F41BB !important;
+}
+/* تكبير حجم "Login here" للضعف وتغيير لونها */
+.login-card h2.text-primary {
+  font-size: 3rem !important; /* تكبير للضعف تقريبًا */
+  color: #1F41BB !important; /* اللون الأساسي */
+}
+
+/* تغيير لون النصوص المحددة إلى اللون الأساسي */
+.login-card p.text-muted,
+.login-card .form-label,
+.login-card .text-primary,
+.login-card a.text-primary {
+  color: #1F41BB !important;
+}
+.login-card .form-label {
+  font-weight: bold !important;
+}

@@ -1,27 +1,111 @@
+/* Container and Card */
 .container {
-  max-width: 1000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  padding: 60px 20px;
 }
 
-/* تعديل الصورة داخل النصف الأيسر */
-.image-container img {
+.login-card {
+  max-width: 900px;
   width: 100%;
-  height: 100vh;
-  object-fit: cover;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0px 4px  rgba(0, 0, 0, 0.1);
+  padding: 4px;
 }
 
-/* تحسين الزر */
+/* Form styling */
+.form-label {
+  color: #1F41BB;
+  font-weight: bold;
+}
+
+.placeholder-light::placeholder {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.form-control {
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  font-size: 16px;
+  padding: 12px;
+}
+
+/* Buttons styling */
 .btn-primary {
-  background-color: #0033cc;
-  border: none;
+  background-color: #1F41BB;
+  border-radius: 12px;
+  padding: 12px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
 }
 
 .btn-primary:hover {
   background-color: #002699;
 }
 
-/* تحسين النموذج ليكون بحجم مناسب */
-.form-container {
-  padding: 40px;
-  max-width: 500px; /* تحديد عرض مناسب للنموذج */
-  margin: auto;
+.google-btn {
+  background: white;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  padding: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.google-btn:hover {
+  border-color: #1F41BB;
+}
+
+.google-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Login link styling */
+.login-link {
+  color: #1F41BB;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+/* Image styling (fixed scrolling) */
+.image-container {
+  position: sticky;
+  top: 0;
+  overflow: hidden;
+  height: 100vh; /* ارتفاع الصورة على كامل الشاشة */
+}
+
+.image-container img {
+  width: 150%; /* تكبير الصورة بمرة ونصف */
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Main titles adjustments */
+.form-container h2 {
+  font-size: 3rem; /* تكبير حجم العنوان الرئيسي للضعف */
+  color: #1F41BB !important;
+}
+
+.form-container > p {
+  font-size: 1.5rem; /* تكبير النص Create your account */
+  color: #1F41BB !important;
+}
+
+/* تصغير النص (Do you have an account? Login) فقط */
+.form-container p.text-center {
+  font-size: 0.85rem;
 }

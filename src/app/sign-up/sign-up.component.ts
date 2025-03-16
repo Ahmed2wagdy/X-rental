@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [CommonModule, FormsModule, RouterModule,],
+  imports: [CommonModule, FormsModule, RouterModule],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.css'
 })
@@ -20,8 +21,8 @@ export class SignUpComponent {
   confirmPassword = '';
   termsAccepted = false;
 
-  cities: string[] = ['Cairo', 'Alexandria', 'Giza', 'Luxor','Mansoura' ,'Aswan'];
-  
+  cities: string[] = ['Cairo', 'Alexandria', 'Giza', 'Luxor', 'Mansoura', 'Aswan'];
+
   onSubmit(form: any) {
     if (form.valid) {
       alert('Registration successful!');
@@ -32,8 +33,7 @@ export class SignUpComponent {
         phoneNumber: this.phoneNumber,
         selectedCity: this.selectedCity,
         birthDate: this.birthDate,
-        password: this.password,
-        confirmPassword: this.confirmPassword
+        password: this.password
       });
     } else {
       alert('Please fill all required fields correctly.');
