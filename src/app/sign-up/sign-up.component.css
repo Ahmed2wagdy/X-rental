@@ -1,17 +1,27 @@
 .container {
-    max-width: 900px;
-  }
-  
-  img {
-    max-width: 80%;
-  }
-  
-  .btn-primary {
-    background-color: #0033cc;
-    border: none;
-  }
-  
-  .btn-primary:hover {
-    background-color: #002699;
-  }
-  
+  max-width: 1000px;
+}
+
+/* تعديل الصورة داخل النصف الأيسر */
+.image-container img {
+  width: 100%;
+  height: 100vh;
+  object-fit: cover;
+}
+
+/* تحسين الزر */
+.btn-primary {
+  background-color: #0033cc;
+  border: none;
+}
+
+.btn-primary:hover {
+  background-color: #002699;
+}
+
+/* تحسين النموذج ليكون بحجم مناسب */
+.form-container {
+  padding: 40px;
+  max-width: 500px; /* تحديد عرض مناسب للنموذج */
+  margin: auto;
+}

@@ -1,76 +1,82 @@
 <div class="container d-flex justify-content-center align-items-center min-vh-100">
-    <div class="row w-100">
-      <!-- الجزء الأيسر (الصورة) -->
-      <div class="col-md-6 d-flex align-items-center justify-content-center">
-        <img src="assets/images/signup.gif" alt="SignUp Illustration" class="img-fluid">
-      </div>
-  
-      <!-- الجزء الأيمن (النموذج) -->
-      <div class="col-md-6 p-4">
+  <div class="row w-100">
+    <!-- الجزء الأيسر (الصورة) -->
+    <div class="col-md-6 d-none d-md-flex align-items-center justify-content-center image-container">
+      <img src="assets/images/signup.gif" alt="SignUp Illustration" class="img-fluid">
+    </div>
+
+    <!-- الجزء الأيمن (النموذج) -->
+    <div class="col-md-6 d-flex align-items-center justify-content-center">
+      <div class="form-container">
         <h2 class="text-primary fw-bold">SignUp</h2>
-        <p class="mb-4">Create your account</p>
-  
-        <form>
+        <p class="mb-3">Create your account</p>
+
+        <form #signUpForm="ngForm" (ngSubmit)="onSubmit(signUpForm)" novalidate>
           <div class="row">
-            <div class="col-md-6 mb-3">
+            <div class="col-md-6 mb-2">
               <label class="form-label">First Name</label>
-              <input type="text" class="form-control" placeholder="ex: Ahmed">
+              <input type="text" class="form-control" placeholder="Ahmed" [(ngModel)]="firstName" name="firstName" required pattern="^[A-Za-z]+$">
+              <div *ngIf="signUpForm.submitted && (!firstName || signUpForm.controls['firstName']?.invalid)" class="text-danger">Only letters are allowed.</div>
             </div>
-            <div class="col-md-6 mb-3">
+            <div class="col-md-6 mb-2">
               <label class="form-label">Last Name</label>
-              <input type="text" class="form-control" placeholder="ex: Wagdy">
+              <input type="text" class="form-control" placeholder="Wagdy" [(ngModel)]="lastName" name="lastName" required pattern="^[A-Za-z]+$">
+              <div *ngIf="signUpForm.submitted && (!lastName || signUpForm.controls['lastName']?.invalid)" class="text-danger">Only letters are allowed.</div>
             </div>
           </div>
-  
-          <div class="mb-3">
+
+          <div class="mb-2">
             <label class="form-label">Email</label>
-            <input type="email" class="form-control" placeholder="ex: ahmedwagdy@email.com">
+            <input type="email" class="form-control" placeholder="ahmedwagdy@email.com" [(ngModel)]="email" name="email" required>
+            <div *ngIf="signUpForm.submitted && (!email || signUpForm.controls['email']?.invalid)" class="text-danger">
+              Valid email is required.
+            </div>
           </div>
-  
-          <div class="mb-3">
+
+          <div class="mb-2">
             <label class="form-label">Phone Number</label>
             <div class="input-group">
               <span class="input-group-text">+20</span>
-              <input type="text" class="form-control" placeholder="ex: 01007559638">
+              <input type="tel" class="form-control" placeholder="01007559638" [(ngModel)]="phoneNumber" name="phoneNumber" required pattern="[0-9]*">
             </div>
+            <div *ngIf="signUpForm.submitted && !phoneNumber" class="text-danger">Only numbers are allowed.</div>
           </div>
-  
-          <div class="mb-3">
+
+          <div class="mb-2">
             <label class="form-label">City</label>
-            <input type="text" class="form-control" placeholder="ex: Cairo">
+            <select class="form-select" [(ngModel)]="selectedCity" name="selectedCity" required>
+              <option *ngFor="let city of cities" [value]="city">{{ city }}</option>
+            </select>
+            <div *ngIf="signUpForm.submitted && !selectedCity" class="text-danger">Please select a city.</div>
           </div>
-  
-          <div class="mb-3">
-            <label class="form-label">Birth of date</label>
-            <input type="date" class="form-control">
+
+          <div class="mb-2">
+            <label class="form-label">Birth Date</label>
+            <input type="date" class="form-control" [(ngModel)]="birthDate" name="birthDate" required>
+            <div *ngIf="signUpForm.submitted && !birthDate" class="text-danger">Birth date is required.</div>
           </div>
-  
-          <div class="mb-3">
+
+          <div class="mb-2">
             <label class="form-label">Password</label>
-            <input type="password" class="form-control" placeholder="********">
+            <input type="password" class="form-control" placeholder="********" [(ngModel)]="password" name="password" required minlength="6">
+            <div *ngIf="signUpForm.submitted && !password" class="text-danger">Password is required (min 6 characters).</div>
           </div>
-  
-          <div class="mb-3">
-            <label class="form-label">Confirm password</label>
-            <input type="password" class="form-control" placeholder="********">
+
+          <div class="mb-2">
+            <label class="form-label">Confirm Password</label>
+            <input type="password" class="form-control" placeholder="********" [(ngModel)]="confirmPassword" name="confirmPassword" required>
+            <div *ngIf="signUpForm.submitted && (confirmPassword !== password)" class="text-danger">Passwords do not match.</div>
           </div>
-  
-          <div class="form-check mb-3">
-            <input type="checkbox" class="form-check-input">
-            <label class="form-check-label">I understood the <a href="#">terms & policy</a>.</label>
+
+          <div class="form-check mb-2">
+            <input type="checkbox" class="form-check-input" [(ngModel)]="termsAccepted" name="termsAccepted" required>
+            <label class="form-check-label">I accept the <a href="#">terms & policy</a>.</label>
+            <div *ngIf="signUpForm.submitted && !termsAccepted" class="text-danger">You must accept the terms.</div>
           </div>
-  
+
           <button type="submit" class="btn btn-primary w-100">SIGN UP</button>
-  
-          <div class="text-center mt-3">
-            <button type="button" class="btn btn-outline-secondary w-100">
-              <img src="assets/images/google.png" alt="Google" width="20"> Sign in with Google
-            </button>
-          </div>
-  
-          <p class="text-center mt-3">Do you have an account? <a routerLink="/login" class="text-primary fw-bold">Login</a></p>
         </form>
       </div>
     </div>
   </div>
-  
+</div>
